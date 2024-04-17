@@ -5,7 +5,7 @@ import com.npclibrary.models.StoryObjects;
 import java.util.List;
 
 public class Location extends StoryObjects {
-    private int level;
+    private int level = 1;
     private List<Location> containsLocations;
 
     // private LocationDetails locationDetails;
