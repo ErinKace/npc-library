@@ -48,4 +48,6 @@ public class Character extends StoryObjects {
     public void setCharaDetails(CharaDetails charaDetails) {
         this.charaDetails = charaDetails;
     }
+
+
 }

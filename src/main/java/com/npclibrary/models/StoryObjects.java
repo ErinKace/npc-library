@@ -1,6 +1,7 @@
 package com.npclibrary.models;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class StoryObjects {
     private long id;
@@ -35,5 +36,17 @@ public abstract class StoryObjects {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StoryObjects that)) return false;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

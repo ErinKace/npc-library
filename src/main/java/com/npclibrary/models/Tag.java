@@ -1,5 +1,7 @@
 package com.npclibrary.models;
 
+import java.util.Objects;
+
 public class Tag {
     private long id;
     private static long nextid = 1;
@@ -20,5 +22,17 @@ public class Tag {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tag tag)) return false;
+        return id == tag.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }
