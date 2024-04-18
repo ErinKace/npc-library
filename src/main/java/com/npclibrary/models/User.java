@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +27,8 @@ public class User {
     private String pwHash;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    private List<Group> groups;
 
     User() {
         this.id = nextId;
