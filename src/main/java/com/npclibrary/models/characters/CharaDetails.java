@@ -1,6 +1,10 @@
 package com.npclibrary.models.characters;
 
 import com.npclibrary.models.locations.Location;
+import com.npclibrary.models.Field;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CharaDetails {
     private Character character;
@@ -11,11 +15,9 @@ public class CharaDetails {
     private String gender;
     private String age;
     private String appearance;
-    private String voice;
-    // this is helpful if you like to roleplay as a dm with lots of silly voices
-    private String wants;
-    private String fears;
     private String bio;
+
+    private List<Field> extrafields = new ArrayList<Field>();
 
     CharaDetails() {
     }
@@ -64,35 +66,33 @@ public class CharaDetails {
         this.appearance = appearance;
     }
 
-    public String getVoice() {
-        return voice;
-    }
-
-    public void setVoice(String voice) {
-        this.voice = voice;
-    }
-
-    public String getWants() {
-        return wants;
-    }
-
-    public void setWants(String wants) {
-        this.wants = wants;
-    }
-
-    public String getFears() {
-        return fears;
-    }
-
-    public void setFears(String fears) {
-        this.fears = fears;
-    }
-
     public String getBio() {
         return bio;
     }
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public List<Field> getExtrafields() {
+        return extrafields;
+    }
+    public void setExtrafields(List<Field> extrafields) {
+        this.extrafields = extrafields;
+    }
+    public boolean addNewField(Field newField) {
+        if (extrafields.contains(newField)) {
+            return false;
+        }
+        extrafields.add(newField);
+        return true;
+    }
+
+    public void removeFieldByIndex(int index) {
+        extrafields.remove(index);
+    }
+
+    public void removeField(Field fieldToRemove) {
+        extrafields.remove(fieldToRemove);
     }
 }
